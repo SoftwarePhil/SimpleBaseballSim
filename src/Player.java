@@ -23,10 +23,10 @@ private int battingStrength;
 //notice the key word public followed by the name of our class
 //inside our parenthesis we have parameters, these are values that we need for our class
 //we need a String and an int to give values to our instance variables
+public Player(String aName, int aBattingStrength){
 //notice how we curly brackets following the end of the parenthesis 
 	//inside these brackets we have the code that will run when we make a new Player object
-public Player(String aName, int aBattingStrength){
-
+	
 //lets assign the value of aName from our parameter to the value of our String called name
 //it is important to remember that the variable aName will contain a String
 	//we just do not know what the exact value will be
@@ -46,10 +46,17 @@ public Player(String aName, int aBattingStrength){
 	//of name from outside the class, remember the instance variable name is private
 	//and due to encapsulation, this method is the only way we can get the value of name
 	//from outside the class, this will make more sense when make create a player object
-//notice the key word public followed by String, the data type of name, followed
+//notice the key word public followed by String, the data type of name, followed an
+	//empty set of parenthesis (these are empty because this method requires values passed into it)
+	//unlike our constructor we made before, this method requires no information
+	//to get the value of name
 public String getName(){
+//once again we have our curly brackets surrounding the code that defines getName()
+	
+//here we have the key word return, this statement sends the value to where the method is
+//being called, this will all come together soon, just stick with me for tiny bit longer
 	return name;
 }
 
-
+//this ending brace completes our Player class! Now lets see how to use it!
 }
