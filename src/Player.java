@@ -1,10 +1,10 @@
-//the word public and class are key words that let the compiler know we
+//the word public and class are keywords that let the compiler know we
 //are about to make a class, the word Player is the name of our class
 public class Player {
 //notice the curly brakes, all the code for our player class will go inside them 
 
-//here we are declaring a instance variable of type String called name
-//notice the key word private
+//here we are declaring an instance variable of type String called name
+//notice the keyword private
 //this means only the things inside the class can access it, encapsulation 
 //Strings are a type of variable that store letters, let the ones you are reading
 //We must specify the type of a variable, when declaring a new variable
@@ -46,16 +46,21 @@ public Player(String aName, int aBattingStrength){
 	//of name from outside the class, remember the instance variable name is private
 	//and due to encapsulation, this method is the only way we can get the value of name
 	//from outside the class, this will make more sense when make create a player object
-//notice the key word public followed by String, the data type of name, followed an
+//notice the keyword public followed by String, the data type of name, followed an
 	//empty set of parenthesis (these are empty because this method requires values passed into it)
 	//unlike our constructor we made before, this method requires no information
 	//to get the value of name
 public String getName(){
 //once again we have our curly brackets surrounding the code that defines getName()
 	
-//here we have the key word return, this statement sends the value to where the method is
+//here we have the keyword return, this statement sends the value to where the method is
 //being called, this will all come together soon, just stick with me for tiny bit longer
 	return name;
+}
+
+//this method is the same as the one above except it is returning an integer
+public int getBattingStrength(){
+	return battingStrength;
 }
 
 //this ending brace completes our Player class! Now lets see how to use it!
