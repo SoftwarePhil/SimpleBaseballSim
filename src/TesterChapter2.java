@@ -1,5 +1,5 @@
 //we are making a new class called tester
-public class Tester {
+public class TesterChapter2 {
 
 //all Java programs need a main method, this is how we declare a main method
 public static void main(String[] args){
