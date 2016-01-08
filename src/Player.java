@@ -63,5 +63,9 @@ public int getBattingStrength(){
 	return battingStrength;
 }
 
+public String toString(){
+	return "Player Name : " + name + "\n" + "Player Batting Strength : " + battingStrength;
+}
+
 //this ending brace completes our Player class! Now lets see how to use it!
 }

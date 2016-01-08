@@ -27,6 +27,11 @@ public int generatePitchingSpeed(){
 	}
 	
 	return speed;
-	}
+}
+
+public String toString(){
+	return super.toString() + "\n" +  "Player Pitching Strength : " + pitchingStrength;
+
+}
 }
 

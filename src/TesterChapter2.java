@@ -8,10 +8,10 @@ public static void main(String[] args){
 		//his name is Bob the Pitcher
 		//his battingStrength is 25
 		//his pitchingStrength is 60
-		//we expect his pitchs to be thrown at a speed between 20 and 110
+		//we expect his pitches to be thrown at a speed between 20 and 110
 	Pitcher myPitcher = new Pitcher("Bob the Pitcher", 25, 60);
 	
-	//creating a variable called pitchingSpeed and inilitlizing it to 0
+	//creating a variable called pitchingSpeed and initializing it to 0
 	int pitchingSpeed = 0;
 	
 	//we have the keyword for

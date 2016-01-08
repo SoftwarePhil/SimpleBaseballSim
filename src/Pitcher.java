@@ -55,7 +55,6 @@ public int generatePitchingSpeed(){
 	//this statement will only execute if the above if statement turns out to not be true
 		//this means that randNum % 2 is equal to 1, or that randNum is odd
 	else{
-		
 		//speed equals pitchingStrength plus randNum
 		speed = pitchingStrength + randNum;
 	}
@@ -70,5 +69,9 @@ public int generatePitchingSpeed(){
 	//this statement is returning the final value of speed
 	return speed;
 	}
+
+public String toString(){
+	return super.toString() + "\n" +  "Player Pitching Strength : " + pitchingStrength;
+}
 }
 

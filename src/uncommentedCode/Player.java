@@ -17,4 +17,9 @@ public String getName(){
 public int getBattingStrength(){
 	return battingStrength;
 }
+
+public String toString(){
+	return "Player Name : " + name + "\n" + "Player Batting Strength : " + battingStrength;
+}
+
 }
