@@ -1,16 +1,33 @@
-//we are making a new class called tester
 public class Tester {
 
-//all Java programs need a main method, this is how we declare a main method
 public static void main(String[] args){
+	Pitcher pitcher = new Pitcher("Pit the Pitcher", 19, 92);
+	Pitcher pitcher2 = new Pitcher("Bruce Butter Fingers", 19, 17);
+	
+	Player[] players = {
+			new Player("Fat Frank", 27),
+			new Player ("Rocket Jenny", 88),
+			pitcher,
+			pitcher2
+			};
+	
+	Team someTeam = new Team(players, "The Slugs");
+	System.out.println(someTeam + "\n");
 
-	Player[] p = {new Player("bob", 55), new Pitcher("pit", 55, 66), new Pitcher("pit2", 55, 36)};
+	for(int i = 0; i < 5; i++){
+		System.out.println("The next Player is \n" + someTeam.getNextPlayer() + "\n");
+	}
 	
-	Team t = new Team(p, "myTeam");
+	for(int i = 0; i < 3; i++){
+		System.out.println("The next Pitcher is \n" + someTeam.getNextPitcher() + "\n");
+	}
+
+	someTeam.addNumberToOuts(2);
+	someTeam.addNumberToScore(4);
+	System.out.println(someTeam + "\n");
 	
-	System.out.println(t.getNextPitcher() + "\n" + t.getNextPitcher() +"\n" + t.getNextPitcher() +"\n" + t.getNextPitcher());
-//this ends our main method
+	someTeam.resetOuts();
+	System.out.println(someTeam);
+}
 }
 
-//this ends our tester class
-}

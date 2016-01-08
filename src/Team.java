@@ -8,6 +8,8 @@ public class Team {
 private Player[] players;
 
 private String teamName;
+
+//these variables will keep track of our current position in the arrays
 private int currentPlayer = 0;
 private int currentPitcher = 0;
 
@@ -41,8 +43,8 @@ public Team(Player[] players, String aTeamName){
 		//this if statement checks to see if the object is a Pitcher
 		if(player instanceof Pitcher){
 			//if the object is a Pitcher we store him in a new variable called newPitcher
-				//note the (Pitcher), here we are casting the Player object as Pitcher
-				//this is like how we took a decimal number and casted it as an int
+				//note the (Pitcher), here we are casting the Player object to Pitcher
+				//this is like how we took a decimal number and casted it to an int
 			Pitcher newPitcher = (Pitcher) player;
 			
 			//here we are adding newPitcher to our ArrayList
@@ -113,6 +115,11 @@ public int getOuts(){
 //this method will return the current score
 public int getScore(){
 	return score;
+}
+
+//toString methods, String contains the team name, outs and score
+public String toString(){
+	return teamName + "\nOuts : " + outs + "\nScore : " + score;  
 }
 
 //this bracket ends the Team class
