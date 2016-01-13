@@ -16,20 +16,20 @@ private int currentPitcher = 0;
 //this will be used to keep track of the number of runs the team has scored
 private int score = 0;
 
-//this will be used to keep track of the number of outs a team has accumulated 
+//this will be used to keep track of the number of outs a team has accumulated
 private int outs = 0;
 
-//here we are creating an ArrayList of type Pitcher(note how we used <> with Pitcher inside)
+//here we are creating an ArrayList of type Pitcher(note how we used <> with Pitcher //inside)
 	//<Pitcher> makes the ArrayList able to store Pitcher objects
 private List<Pitcher> listOfPitchers = new ArrayList<Pitcher>();
 
-//this the constructor for Team
-//it takes an array of Players and a String as parameters  
+//this is the constructor for Team
+//it takes an array of Players and a String as parameters
 public Team(Player[] players, String aTeamName){
 	
-	//note both variables called players, but one has a "this."
+	//note both variables are called players, but one has a "this."
 		//this means that we are talking about the instance variable
-		//players on the left side is the method parameter  
+		//players on the left side is the method parameter
 	this.players = players;
 	teamName = aTeamName;
 	
@@ -37,14 +37,14 @@ public Team(Player[] players, String aTeamName){
 		//first we define a variable of the type that makes up our list or array
 		//next we put a colon
 		//and finally we specify the array or list we want to use
-		//this is easier to construct then using a standard for loop 
-			//for cycling through arrays
+		//this is easier to construct then using a standard for loop
+			//for cycling through arrays and ArrayLists
 	for(Player player : players){
 		//this if statement checks to see if the object is a Pitcher
 		if(player instanceof Pitcher){
-			//if the object is a Pitcher we store him in a new variable called newPitcher
-				//note the (Pitcher), here we are casting the Player object to Pitcher
-				//this is like how we took a decimal number and casted it to an int
+//if the object is a Pitcher we store them in a new variable called //newPitcher
+//note the (Pitcher), here we are casting the Player object to Pitcher
+//this is like how we took a decimal number and casted it to an int
 			Pitcher newPitcher = (Pitcher) player;
 			
 			//here we are adding newPitcher to our ArrayList
@@ -54,7 +54,7 @@ public Team(Player[] players, String aTeamName){
 	
 	//this if statement is checking to see if the newly created Team has a Pitcher
 		//if the Team object has no Pitcher object it will cause problems for
-			//our simulation 
+			//our simulation
 	if(listOfPitchers.isEmpty()){
 		//this println will let us know something went wrong
 		System.out.println("No pitcher found on team " + teamName);
@@ -67,11 +67,11 @@ public Player getNextPlayer(){
 	
 	//this if statement checks to make sure our array does not go out of bounds
 	if(currentPlayer >= players.length){
-		//if we are >= the length of the array set currentPlayer back to 0
+		//if we are >= to the length of the array, we set currentPlayer back to 0
 		currentPlayer = 0;
 	}
 	
-	//this is the next Player that the will bat
+	//this is the next Player who will be up at bat
 	Player nextPlayer = players[currentPlayer];
 	//this increases the value of currentPlayer by 1
 	//next time this method is called the next Player in the array will be returned
@@ -116,10 +116,10 @@ public int getOuts(){
 public int getScore(){
 	return score;
 }
-
+	 	 	
 //toString methods, String contains the team name, outs and score
 public String toString(){
-	return teamName + "\nOuts : " + outs + "\nScore : " + score;  
+	return teamName + "\nOuts : " + outs + "\nScore : " + score;
 }
 
 //this bracket ends the Team class

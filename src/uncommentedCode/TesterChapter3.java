@@ -11,6 +11,9 @@ public static void main(String[] args){
 		//notice we are just putting the each element into the array
 		//we can both construct new objects inside here or put ones
 		//that have already been made
+		//this is another way of making an array
+		//notice how we do not need to give it size, instead we just give it all the
+		//elements we want to put inside
 	Player[] players = {
 			new Player("Fat Frank", 27),
 			new Player ("Rocket Jenny", 88),
@@ -19,7 +22,7 @@ public static void main(String[] args){
 			};
 	
 	//here we are making a reference variable called someTeam
-	//and storing a Team object that takes are Players array
+	//and storing a Team object that takes the players array
 		//and the String "The Slugs" as parameters for its constructor
 	//notice how this new Team object is made up of Player objects
 	Team someTeam = new Team(players, "The Slugs");

@@ -1,33 +1,32 @@
 public class Tester {
 
 public static void main(String[] args){
-	Pitcher pitcher = new Pitcher("Pit the Pitcher", 19, 92);
-	Pitcher pitcher2 = new Pitcher("Bruce Butter Fingers", 19, 17);
-	
+
 	Player[] players = {
 			new Player("Fat Frank", 27),
 			new Player ("Rocket Jenny", 88),
-			pitcher,
-			pitcher2
+			new Pitcher("Bruce Butter Fingers", 19, 17),
+			new Pitcher("Pit the Pitcher", 31, 92)
 			};
 	
-	Team someTeam = new Team(players, "The Slugs");
-	System.out.println(someTeam + "\n");
-
-	for(int i = 0; i < 5; i++){
-		System.out.println("The next Player is \n" + someTeam.getNextPlayer() + "\n");
-	}
+	Player[] players2 = {
+			new Player("Fancy Frank", 44),
+			new Player ("Jenny", 66),
+			new Pitcher("Barry Big Hands", 15, 50),
+			new Pitcher("Timbo Tim", 19, 70)
+			};
 	
-	for(int i = 0; i < 3; i++){
-		System.out.println("The next Pitcher is \n" + someTeam.getNextPitcher() + "\n");
-	}
-
-	someTeam.addNumberToOuts(2);
-	someTeam.addNumberToScore(4);
-	System.out.println(someTeam + "\n");
+	Team teamOne = new Team(players, "The Slugs");
+	Team teamTwo = new Team(players2, "The Snails");
 	
-	someTeam.resetOuts();
-	System.out.println(someTeam);
+	Batting batting = new Batting();
+	CurrentBatting cb = new CurrentBatting(teamOne.getNextPlayer(), 
+							teamTwo.getNextPitcher());
+	
+	int numberOfBases = batting.startBatting(cb);
+	
+	System.out.println("\n"+batting + "\nThey will move " + 
+						numberOfBases + " base(s)");
 }
 }
 
