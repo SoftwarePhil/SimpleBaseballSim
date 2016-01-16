@@ -1,3 +1,4 @@
+package teamPackage;
 //the word public and class are keywords that let the compiler know we
 //are about to make a class, the word Player is the name of our class
 public class Player {
@@ -16,6 +17,8 @@ private String name;
 //int are a data type that hold integer numbers (a whole number like 1 and not 3.14) 
 //this number must fall between -2,147,483,648 and 2,147,483,648
 private int battingStrength;
+
+private int fieldingStrength;
 
 //Okay now that we have created our instance variables lets give them some values!
 //we can do this by making something called a constructor
@@ -42,6 +45,12 @@ public Player(String aName, int aBattingStrength){
 	battingStrength = aBattingStrength;
 }
 
+public Player(String aName, int aBattingStrength, int aFieldingStrength){
+	name = aName;
+	battingStrength = aBattingStrength;
+	fieldingStrength = aFieldingStrength;
+}
+
 //here we are making a method called getName, we are doing this so that we can access the value
 	//of name from outside the class, remember the instance variable name is private
 	//and due to encapsulation, this method is the only way we can get the value of name
@@ -61,6 +70,14 @@ public String getName(){
 //this method is the same as the one above except it is returning an integer
 public int getBattingStrength(){
 	return battingStrength;
+}
+
+public int getFieldingStrength() {
+	return fieldingStrength;
+}
+
+public void setFieldingStrength(int fieldingStrength) {
+	this.fieldingStrength = fieldingStrength;
 }
 
 public String toString(){

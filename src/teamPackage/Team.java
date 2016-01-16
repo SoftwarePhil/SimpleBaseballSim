@@ -1,3 +1,4 @@
+package teamPackage;
 //these imports are needed to use the ArrayList class	
 import java.util.ArrayList;
 import java.util.List;

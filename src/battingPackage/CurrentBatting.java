@@ -1,3 +1,7 @@
+package battingPackage;
+import teamPackage.Pitcher;
+import teamPackage.Player;
+
 public class CurrentBatting {
 
 private int strikes = 0;

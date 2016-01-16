@@ -1,3 +1,4 @@
+package teamPackage;
 //a class called Pitcher is being defined here, this class is extending Player
 	//this Pitcher has a relationship with Player that is defined by inheritance
 	//Pitcher is a child of Player
