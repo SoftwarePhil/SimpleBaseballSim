@@ -15,18 +15,6 @@ protected Base three = new Base();
 
 public Ball ball = new Ball();
 
-/* Fielding Array (x marks plate, P is pitcher square)
- * ________________
- * | 0 | 1 |  2   |
- * ________________
- * | 3 | 4x | 5   |
- * ________________
- * | 6x | 7P | 8x |
- * ________________
- * |   | 9x |     |
- * ----------------
- */
-
 private int rows = 4;
 private int columns = 5;
 
@@ -53,9 +41,9 @@ public CurrentField(){
 	gridFieldArray[0][0].setKey("LF", 15);
 	gridFieldArray[0][2].setKey("CF", 15);
 	gridFieldArray[0][4].setKey("RF", 15);
-	gridFieldArray[2][1].setKey("SS", 8);
+	gridFieldArray[1][1].setKey("SS", 8);
 	gridFieldArray[2][2].setKey("P", 8);
-	gridFieldArray[2][3].setKey("2B", 8);
+	gridFieldArray[1][2].setKey("2B", 8);
 	gridFieldArray[3][0].setKey("3B", 8);
 	gridFieldArray[3][2].setKey("C", 8);
 	gridFieldArray[3][4].setKey("1B", 5);
@@ -63,6 +51,8 @@ public CurrentField(){
 }
 
 public void start(Team fieldingTeam){
+	score = 0;
+	outs = 0;
 	home.removePlayerOnBase();
 	one.removePlayerOnBase();
 	two.removePlayerOnBase();
@@ -78,6 +68,10 @@ public void start(Team fieldingTeam){
 	gridFieldArray[3][0].setFielder(fieldingTeam.getNextPlayer());
 	gridFieldArray[3][2].setFielder(fieldingTeam.getNextPlayer());
 	gridFieldArray[3][4].setFielder(fieldingTeam.getNextPlayer());
+}
+
+public void resetOuts(){
+	outs = 0;
 }
 
 public void putBallIntoRandomSquare(){

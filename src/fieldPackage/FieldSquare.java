@@ -56,11 +56,11 @@ public void setFielder(Player fielder) {
 }
 
 public boolean wasBallCaught(){
-	int temp = (int)(Math.random() * (playerSpace.length-1));
-	int temp2 = (int)(Math.random() * 100);
-	System.out.println("chance " + (100 - playerSpace[temp]) + " random num " + temp2);
-	if((temp2 > (100 - playerSpace[temp]))){
-		System.out.println("BALL HAS BEEN CAUGHT OUT");
+	int index = (int)(Math.random() * (playerSpace.length-1));
+	int temp2 = (int)(Math.random() * 300);
+	//System.out.println("chance " + (100 - playerSpace[index]) + " random num " + temp2);
+	if((temp2 > (100 - playerSpace[index]))){
+		//System.out.println("BALL HAS BEEN CAUGHT OUT");
 		return true;
 	}
 	else return false;

@@ -177,7 +177,7 @@ private int pitch(){
 	//hit
 	else{
 		stringOutput = stringOutput + "Ball was hit by \n" + 
-				currentBatting.getPlayer() + " outcome = " + temp + "\n";
+				currentBatting.getPlayer().getName() + " outcome = " + temp + "\n";
 		
 		return 0;
 	} 

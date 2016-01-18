@@ -117,6 +117,11 @@ public int getOuts(){
 public int getScore(){
 	return score;
 }
+
+//added this method
+public String getTeamName(){
+	return teamName;
+}
 	 	 	
 //toString methods, String contains the team name, outs and score
 public String toString(){

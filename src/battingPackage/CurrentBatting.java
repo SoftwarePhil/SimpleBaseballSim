@@ -9,7 +9,7 @@ private int fouls = 0;
 private int balls = 0;
 private Player player;
 private Pitcher pitcher;
-private String homerunOrWalk;
+private String homerunOrWalk = "";
 
 public CurrentBatting(Player player, Pitcher pitcher){
 	this.player = player;

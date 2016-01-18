@@ -15,5 +15,4 @@ public void setPostion(int x, int y){
 public int[] getPostion(){
 	return ballPostion;
 }
-
 }

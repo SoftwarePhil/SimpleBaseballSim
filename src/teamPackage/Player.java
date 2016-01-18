@@ -76,10 +76,6 @@ public int getFieldingStrength() {
 	return fieldingStrength;
 }
 
-public void setFieldingStrength(int fieldingStrength) {
-	this.fieldingStrength = fieldingStrength;
-}
-
 public String toString(){
 	return "Player Name : " + name + "\n" + "Player Batting Strength : " + battingStrength;
 }
