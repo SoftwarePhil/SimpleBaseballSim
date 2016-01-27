@@ -2,7 +2,6 @@ package fieldPackage;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import teamPackage.Player;
 
@@ -34,7 +33,6 @@ public int newPlayerOnBases(int n, Player p, int numOfOuts, String walkOrHomeRun
 			try{
 			System.out.println("amount of bases to move " + n);
 			addStringToOutput("amount of bases to move " + n);
-			
 			
 			if (n > 0){	
 				if(!(currentField.three.getPlayerOnBase() == null)){
@@ -153,9 +151,6 @@ private void movePlayerThreeBases(Player p) throws Exception{
 }
 
 private boolean checkIfBallIsCaught(){
-	//gridFieldArray[0][0].setKey("LF", 15);
-	//gridFieldArray[0][2].setKey("CF", 15);
-	//gridFieldArray[0][4].setKey("RF", 15);
 	temp = currentField.ball.getPostion(); 
 	//System.out.println("Ball hit into field at " + " Ball pos " + temp[0] +" :" + temp[1]);
 	addStringToOutput("Ball hit into field at " + " Ball pos " + temp[0] +" :" + temp[1]);
@@ -354,8 +349,8 @@ private void newPlayerOnBasesHomerun(Player p){
 	addStringToOutput("amount of outs " + currentField.getOuts());
 }
 
-public String[] getOutput(){
-	return (String[]) outputList.toArray();
+public List<String> getGameEvents(){
+	return outputList;
 }
 
 public void printOutputList(){

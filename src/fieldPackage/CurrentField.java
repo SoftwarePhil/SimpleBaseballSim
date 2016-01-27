@@ -5,8 +5,6 @@ public class CurrentField {
 
 private int score = 0;
 private int outs = 0;
-
-private Team fieldingTeam;
 	
 protected Base home = new Base();
 protected Base one = new Base();
@@ -57,7 +55,6 @@ public void start(Team fieldingTeam){
 	one.removePlayerOnBase();
 	two.removePlayerOnBase();
 	three.removePlayerOnBase();
-	this.fieldingTeam = fieldingTeam;
 	
 	gridFieldArray[0][0].setFielder(fieldingTeam.getNextPlayer());
 	gridFieldArray[0][2].setFielder(fieldingTeam.getNextPlayer());

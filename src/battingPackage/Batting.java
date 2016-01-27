@@ -1,5 +1,8 @@
 package battingPackage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Batting {
 //these variables will be used to calculate what outcome of a swing
 //will be
@@ -11,7 +14,8 @@ private int chanceOfFoul = 0;
 private int strikes;
 private int balls;
 
-private String stringOutput;
+//private String stringOutput;
+private List<String> gameEvents = new ArrayList<String>();
 //this object stores the current Player and Pitcher
 //as well as strikes, balls, and fouls
 //and a special attribute that handles the case of a homerun
@@ -25,15 +29,15 @@ private CurrentBatting currentBatting;
 //this method is returning the number of bases a player can move
 //the print boolean determines if anything gets printed or not
 public int startBatting(CurrentBatting currentBatting, boolean print){
+	gameEvents.clear();
 	balls = 0;
 	strikes = 0;
-	stringOutput = "";
 	
 	this.currentBatting = currentBatting;
 	int bases = atBat();
 	
 	if(print){
-		System.out.println(stringOutput);
+		printGameEvents();
 	}
 	
 	return bases;
@@ -138,18 +142,17 @@ private int pitch(){
 		balls = currentBatting.getBalls();
 		
 		//note how we are setting the value of outputString
-			//this is what the program prints
-		stringOutput = stringOutput + "Ball " + balls + 
-							" outcome " + temp + "\n";
+			//this is what the program prints		
+		addGameEvents("Ball " + balls + " outcome " + temp);
+		
 		return 1;
 	}
 	//strike
 	else if(temp < chanceOfBall + chanceOfStrike){
 		currentBatting.addStrike();
 		strikes = currentBatting.getStrikes();
-
-		stringOutput = stringOutput + "Strike " + strikes + 
-									" outcome " + temp + "\n";
+		addGameEvents("Strike " + strikes + " outcome " + temp);
+		
 		return 1;
 	}
 	//foul
@@ -159,26 +162,20 @@ private int pitch(){
 		if(currentBatting.getStrikes() < 2){
 			currentBatting.addStrike();
 			strikes = currentBatting.getStrikes();
-
-			stringOutput = stringOutput + "Foul that was strike " + 
-						strikes + " outcome " + temp + "\n";
+			addGameEvents("Foul that was strike " + strikes + " outcome " + temp);
 			
 			return 1;
 		}
 		else {
 			currentBatting.addFoul();
-			
-			stringOutput = stringOutput + "foul " + 
-					currentBatting.getFouls() + " outcome " + temp + "\n";
+			addGameEvents("foul " + currentBatting.getFouls() + " outcome " + temp);
 			
 			return 1;
 		}
 	}
 	//hit
 	else{
-		stringOutput = stringOutput + "Ball was hit by \n" + 
-				currentBatting.getPlayer().getName() + " outcome = " + temp + "\n";
-		
+		addGameEvents("Ball was hit by \n" + currentBatting.getPlayer().getName() + " outcome = " + temp);
 		return 0;
 	} 
 }
@@ -224,6 +221,19 @@ private int hit(){
 			return 4;
 		}
 	}
+}
+
+private void addGameEvents(String s){
+	gameEvents.add(s);
+}
+
+private void printGameEvents(){
+	for(String s : gameEvents){
+		System.out.println(s);
+	}
+}
+public List<String> getGameEvents(){
+	return gameEvents;
 }
 
 public String toString(){

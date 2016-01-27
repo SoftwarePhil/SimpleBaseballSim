@@ -1,11 +1,20 @@
 package baseballGamePackage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PlayBall {
 
 public static void main(String[] args){
 	
-	Game g = new Game("Mets", "Yankees", true);
+	Game g = new Game("Mets", "Yankees", false);
 	g.playGame();
+	
+	ArrayList<String> events = (ArrayList<String>) g.getGameEvents();
+	
+	for(String s : events){
+		System.out.println(s);
+	}
 	
 	/*
 	int[] avg = new int[2];

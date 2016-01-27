@@ -1,4 +1,7 @@
 package baseballGamePackage;
+import java.util.ArrayList;
+import java.util.List;
+
 import battingPackage.Batting;
 import battingPackage.CurrentBatting;
 import teamPackage.CreateTeam;
@@ -25,6 +28,7 @@ private boolean initOrder;
 
 private int innings;
 private int outsToBeAdded;
+private List<String> gameEvents = new ArrayList<String>();
 
 private boolean print;
 	
@@ -63,13 +67,15 @@ public void teamAtBat(){
 cf.start(teams[pitchingTeam]);
 while(teams[battingTeam].getOuts() < 3){
 	currentBattingPlayer = teams[battingTeam].getNextPlayer();
-	System.out.println(currentBattingPlayer.getName() + " is at bat");
+	//System.out.println(currentBattingPlayer.getName() + " is at bat");
+	gameEvents.add(currentBattingPlayer.getName() + " is at bat");
 	CurrentBatting cb = new CurrentBatting(currentBattingPlayer, teams[pitchingTeam].getNextPitcher());
 	amountOfBasesToMove = bat.startBatting(cb, print);
-	
+	gameEvents.addAll((bat.getGameEvents()));
 	
 	if(amountOfBasesToMove > 0 ){
 		outsToBeAdded = f.newPlayerOnBases(amountOfBasesToMove, currentBattingPlayer, teams[battingTeam].getOuts(), cb.getHomerunOrWalk(), print);
+		gameEvents.addAll(f.getGameEvents());
 		if(outsToBeAdded > 0){
 			teams[battingTeam].addNumberToOuts(outsToBeAdded);
 			}
@@ -78,6 +84,7 @@ while(teams[battingTeam].getOuts() < 3){
 	else{
 		teams[battingTeam].addNumberToOuts(1);
 		System.out.println("OUT HAS HAPPENED " + teams[battingTeam].getOuts());
+		gameEvents.add("OUT HAS HAPPENED " + teams[battingTeam].getOuts());
 			}
 	}
 	teams[battingTeam].addNumberToScore(cf.getScore());
@@ -88,29 +95,38 @@ while(teams[battingTeam].getOuts() < 3){
 public void inning(){
 	teamAtBat();
 	switchTeams();
-	System.out.println("NEW TEAM AT BAT " + teams[battingTeam].getTeamName());
+	//System.out.println("NEW TEAM AT BAT " + teams[battingTeam].getTeamName());
+	gameEvents.add("NEW TEAM AT BAT " + teams[battingTeam].getTeamName());
 	System.out.println();
 	teamAtBat();
 	switchTeams();
-	System.out.println("NEW TEAM AT BAT " + teams[battingTeam].getTeamName());
-	System.out.println();
+	//System.out.println("NEW TEAM AT BAT " + teams[battingTeam].getTeamName());
+	gameEvents.add("NEW TEAM AT BAT " + teams[battingTeam].getTeamName());
+	//System.out.println();
 	innings++;
 }
 
 public int[] playGame(){
-while(innings < 9){
-	inning();
-	System.out.println("score at end of inning " + innings + " is: " +"\n"
-	+"Home Team: "  + teams[0].getTeamName() +" "+ teams[0].getScore() +"\n"+ "Away Team: "  + teams[1].getTeamName() +" "+ teams[1].getScore());
-}
-while(teams[0].getScore() == teams[1].getScore()){
-	inning();
-	System.out.println("score at end of inning " + innings + " is: " +"\n"
-	+"Home Team: "  + teams[0].getTeamName() +" "+ teams[0].getScore() +"\n" + "Away Team: " + teams[1].getTeamName() +" " + teams[1].getScore());
-}
+	while(innings < 9){
+		inning();
+		//System.out.println("score at end of inning " + innings + " is: " +"\n"
+		//+"Home Team: "  + teams[0].getTeamName() +" "+ teams[0].getScore() +"\n"+ "Away Team: "  + teams[1].getTeamName() +" "+ teams[1].getScore());
+		gameEvents.add("score at end of inning " + innings + " is: " +"\n"
+		+"Home Team: "  + teams[0].getTeamName() +" "+ teams[0].getScore() +"\n"+ "Away Team: "  + teams[1].getTeamName() +" "+ teams[1].getScore());
+	}
+	while(teams[0].getScore() == teams[1].getScore()){
+		inning();
+		//System.out.println("score at end of inning " + innings + " is: " +"\n"
+		//+"Home Team: "  + teams[0].getTeamName() +" "+ teams[0].getScore() +"\n" + "Away Team: " + teams[1].getTeamName() +" " + teams[1].getScore());
+		gameEvents.add("score at end of inning " + innings + " is: " +"\n"
+				+"Home Team: "  + teams[0].getTeamName() +" "+ teams[0].getScore() +"\n" + "Away Team: " + teams[1].getTeamName() +" " + teams[1].getScore());
+	}
 
-int[] temp = {teams[0].getScore(), teams[1].getScore()};
-return temp;
-
+	int[] temp = {teams[0].getScore(), teams[1].getScore()};
+	
+	return temp;
+}
+public List<String> getGameEvents(){
+	return gameEvents;
 }
 }
